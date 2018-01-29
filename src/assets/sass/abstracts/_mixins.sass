@@ -1,0 +1,35 @@
+@mixin clearfix
+  &::after
+    content: ""
+    display: table
+    clear: both
+
+@mixin card-styles
+  padding: 2rem 4rem 0
+  background-color: rgba($color-white, .3)
+  box-shadow: 0 2rem 5rem rgba($color-black, .2)
+  text-align: center
+
+  @include respond(tab-port)
+    padding: 3rem 5rem
+
+@mixin respond($breakpoint)
+  @if $breakpoint == phone
+    //600px
+    @media (max-width: 37.5em)
+      @content
+
+  @if $breakpoint == tab-port
+    //900px
+    @media (max-width: 56.25em)
+      @content
+
+  @if $breakpoint == tab-land
+    //1200px
+    @media (max-width: 75em)
+      @content
+
+  @if $breakpoint == big-desk
+    //1800px
+    @media (min-width: 112.5em)
+      @content

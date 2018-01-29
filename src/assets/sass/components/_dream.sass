@@ -1,0 +1,19 @@
+.dream
+  background-color: rgba($color-white, .86)
+  // padding: 4rem 6rem
+  height: 68rem
+  box-shadow: 0 2rem 5rem rgba($color-black, .2)
+  border-radius: 3px
+  // overflow: hidden
+  // backface-visibility: hidden
+
+  @include respond(tab-port)
+    height: 63rem
+
+  &__image
+    border-top-left-radius: 3px
+    border-top-right-radius: 3px
+
+  &__text
+    font-size: $default-font-size
+    margin: 2rem 4rem
