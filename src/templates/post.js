@@ -18,30 +18,37 @@ class Template extends React.Component {
 
     return (
       <div>
-        <h1>{title}</h1>
-        <p>{date}</p>
-        {audio ? (
-          <div>
-            {/* <ReactAudioPlayer src={audio.file.url} controls /> */}
-            {console.log(post)}
-            <MediaElement
-              id={post.title}
-              mediaType="audio"
-              src={post.audio.file.url}
-              // sources={JSON.stringify(sources)}
-              controls
-              options={JSON.stringify(config)}
-              tracks={JSON.stringify(tracks)}
-              // style={audioStyles}
-            />
-          </div>
-        ) : (
-          <div>No audio</div>
-        )}
-        <div
-          dangerouslySetInnerHTML={{ __html: content.childMarkdownRemark.html }}
-        />
-        <Link to="/blog/">Back to blog</Link>
+        <div className="podcast">
+          <h1 className="podcast__title">{title}</h1>
+          <p className="podcast__date">{date}</p>
+          {audio ? (
+            <div className="podcast__audio">
+              {/* <ReactAudioPlayer src={audio.file.url} controls /> */}
+              {console.log(post)}
+              <MediaElement
+                id={post.title}
+                mediaType="audio"
+                src={post.audio.file.url}
+                // sources={JSON.stringify(sources)}
+                controls
+                options={JSON.stringify(config)}
+                tracks={JSON.stringify(tracks)}
+                // style={audioStyles}
+              />
+            </div>
+          ) : (
+            <div className="podcast__no-audio">No audio</div>
+          )}
+          <div
+            className="podcast__content"
+            dangerouslySetInnerHTML={{
+              __html: content.childMarkdownRemark.html
+            }}
+          />
+          <Link className="podcast__back" to="/podcasts/">
+            Back to blog
+          </Link>
+        </div>
       </div>
     );
   }

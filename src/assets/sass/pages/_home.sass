@@ -1,1 +1,52 @@
+.section-landing
+  min-height: 100vh
+  min-width: 100vw
+  background-image: linear-gradient(to right bottom, rgba($color-white, 0.8), rgba($color-white, 0.6)), url(../images/project.jpg)
+  background-size: cover
+  background-position: center
 
+  @media (min-resolution: 192dpi) and (min-width: 37.5rem), (min-width: 125rem)
+    background-image: linear-gradient(to right bottom, rgba($color-white, 0.8), rgba($color-white, 0.6)), url(../images/project.jpg)
+
+  .landing
+    width: 100%
+    color: $color-black
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    text-align: center
+
+    &__heading
+      text-transform: uppercase
+      font-weight: 100
+      font-size: 9rem
+
+      @include respond(phone)
+        font-size: 6rem
+
+    &__logo
+      width: 30rem
+
+    &__sub-heading
+      font-size: 2rem
+      margin: 0 auto 6rem
+      width: 50%
+      color: $color-black
+
+      @include respond(phone)
+        width: 90%
+
+    &__navigation
+      font-size: 3rem
+
+      &--podcasts,
+      &--about
+        margin: 0 1rem
+        border: 2px solid $color-primary-light
+        padding: 1.5rem 3rem
+        border-radius: .5rem
+
+        &:hover
+          background: $color-primary-light
+          color: $color-white

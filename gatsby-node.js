@@ -22,7 +22,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 
     res.data.allContentfulPost.edges.forEach(({ node }) => {
       createPage({
-        path: `/blog/${node.title.replace(/\s+/g, '-')}/`,
+        path: `/podcasts/${node.title.replace(/\s+/g, '-')}/`,
         component: postTemplate,
         context: {
           id: node.id

@@ -1,2 +1,32 @@
+*,
+*::after,
+*::before
+  margin: 0
+  padding: 0
+  box-sizing: inherit
+
+html
+  //this defines what 1rem is
+  font-size: 62.5%
+
+  @include respond(tab-land)
+    font-size: 56.25%
+  @include respond(tab-port)
+    font-size: 50%
+  @include respond(big-desk)
+    font-size: 75%
+
+body
+  box-sizing: border-box
+  overflow: hidden
+
+a
+  color: $color-primary-light
+  text-decoration: none
+
+a:hover
+  opacity: .8
+
 .mejs__container
   max-width: 640px
+  background: $color-primary-light

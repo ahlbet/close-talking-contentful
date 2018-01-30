@@ -1,0 +1,22 @@
+.podcasts
+  width: 60%
+  margin: 5rem auto 0
+
+  @include respond(tab-port)
+    width: 80%
+
+  @include respond(phone)
+    width: 90%
+
+  &__heading
+    font-size: 5rem
+
+  &__list
+    margin: 0
+    list-style: none
+
+  &__item
+    font-size: 2rem
+
+  &__home
+    font-size: $default-font-size
