@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "author": "Dylan Stratton",
   "dependencies": {
-    "gatsby": "^1.9.158",
+    "gatsby": "^1.9.188",
     "gatsby-link": "^1.6.34",
     "gatsby-plugin-react-helmet": "^2.0.3",
     "gatsby-plugin-sass": "^1.0.16",
