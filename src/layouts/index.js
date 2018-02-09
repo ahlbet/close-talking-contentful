@@ -9,11 +9,11 @@ import '../assets/sass/main.sass';
 const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet
-      title="Dylan Stratton | Web Developer"
+      title="Close Talking"
       meta={[
         {
           name: 'description',
-          content: 'Portfolio site and blog maintained by Dylan Stratton'
+          content: 'Close Talking | Poetry Podcast'
         },
         { name: 'keywords', content: 'web, developer' }
       ]}
