@@ -9,9 +9,10 @@ const Podcasts = ({ data }) => (
       <ul className="podcasts__list">
         {data.allContentfulPost.edges.map(post => (
           <li className="podcasts__item" key={post.node.id}>
-            <Link to={`/podcasts/${post.node.title.replace(/\s+/g, '-')}/`}>
+            <Link className="podcasts__item--link" to={`/podcasts/${post.node.title.replace(/\s+/g, '-')}/`}>
               {post.node.title}
             </Link>
+            <p className="podcasts__item--excerpt">{post.node.content.childMarkdownRemark.excerpt}</p>
           </li>
         ))}
       </ul>
@@ -33,6 +34,10 @@ export const pageQuery = graphql`
           date(formatString: "MM-DD-YYYY")
           content {
             content
+            childMarkdownRemark {
+              html
+              excerpt(pruneLength: 300)
+            }
           }
           soundcloudLink {
             soundcloudLink
