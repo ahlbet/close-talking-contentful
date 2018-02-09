@@ -30,16 +30,12 @@ export const pageQuery = graphql`
         node {
           id
           title
-          date
+          date(formatString: "MM-DD-YYYY")
           content {
             content
           }
-          audio {
-            file {
-              url
-              fileName
-              contentType
-            }
+          soundcloudLink {
+            soundcloudLink
           }
         }
       }
