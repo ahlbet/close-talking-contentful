@@ -9,7 +9,9 @@ const Podcasts = ({ data }) => (
       <ul className="podcasts__list">
         {data.allContentfulPost.edges.map(post => (
           <li className="podcasts__item" key={post.node.id}>
-            <Link className="podcasts__item--link" to={`/podcasts/${post.node.title.replace(/\s+/g, '-')}/`}>
+
+            {/* { console.log(post.node.title.replace(/\s+/g, '-').toLowerCase()) } */}
+            <Link className="podcasts__item--link" to={`/podcasts/${post.node.title.replace(/\s+/g, '-').toLowerCase()}/`}>
               {post.node.title}
             </Link>
             <p className="podcasts__item--excerpt">{post.node.content.childMarkdownRemark.excerpt}</p>
