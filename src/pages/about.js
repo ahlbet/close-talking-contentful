@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'gatsby-link';
 import Footer from '../components/Footer';
 
-import jackImage from '../assets/images/jack.jpg';
+import jackImage from '../assets/images/jack-bw.jpg';
 import connorImage from '../assets/images/connor.jpg';
 import aboutImage from '../assets/images/landing.png';
 
