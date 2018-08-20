@@ -30,10 +30,14 @@
       margin-bottom: 0
 
     &__sub-heading
+      text-align: justify
       font-size: $default-font-size
       margin: 4rem auto 5rem
-      width: 50%
+      width: 45%
       color: $color-white
+
+      @include respond(tab-port)
+        width: 60%
 
       @include respond(phone)
         width: 90%
