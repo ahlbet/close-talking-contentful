@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-
-import Header from '../components/Header';
+import favicon from '../assets/images/logo.png';
 import './index.scss';
 import '../assets/sass/main.sass';
 
@@ -16,6 +15,9 @@ const TemplateWrapper = ({ children }) => (
           content: 'Close Talking | Poetry Podcast'
         },
         { name: 'keywords', content: 'web, developer' }
+      ]}
+      link={[
+        { rel: 'shortcut icon', type: 'image/png', href: `${favicon}` }
       ]}
     />
     {/* <Header /> */}
