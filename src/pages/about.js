@@ -27,12 +27,7 @@ const About = () => (
       <div className="about__connor">
         <img src={connorImage} alt="A Headshot of Connor" className="about__bio--img" />
         <p className="about__connor--text">
-          <b>Connor McNamara Stratton</b> is an Master of Fine Arts candidate in
-          poetry at the University of Minnesota. His poetry and reviews have been
-          published in <em>DIAGRAM</em>, <em>Rogue Agent</em>, <em>Full Stop</em>,
-          and <em>Everyday Genius</em>. In addition to co-hosting Close Talking,
-          he is a mentor for the Minnesota Prison Writing Workshop, and an
-          intermittent theater director.
+          <b>Connor McNamara Stratton</b> holds a Master of Fine Arts in poetry from the University of Minnesota and received the Academy of American Poets prize from Oberlin College. His poetry and reviews have been published in <em>DIAGRAM</em>, <em>Rogue Agent</em>, <em>Full Stop</em>, and <em>Everyday Genius</em>, among others, and he has held a writing residency at the Anderson Center. In addition to co-hosting Close Talking, he is a mentor for the Minnesota Prison Writing Workshop and an intermittent theater director.
         </p>
       </div>
 
