@@ -2,13 +2,13 @@ import React from 'react';
 import Link from 'gatsby-link';
 
 import Footer from '../components/Footer';
-import logo from '../assets/images/logo.svg';
+// import logo from '../assets/images/logo.svg';
+import logo from '../assets/images/logo3.svg';
 
 const IndexPage = () => (
   <div>
     <section id="home" className="section-landing">
       <div className="landing">
-        {/* <h1 className="landing__heading">Close Talking</h1> */}
         <img className="landing__logo" src={logo} alt="Close Talking Logo" />
         <p className="landing__sub-heading">
           Close Talking is a podcast hosted by good friends Connor Stratton and

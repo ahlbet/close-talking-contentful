@@ -11,7 +11,7 @@ class Footer extends Component {
             className="footer__link"
             rel="noreferrer noopener"
             target="_blank"
-            href="http://www.dylanstratton.com/"
+            href="https://www.dylanstratton.com/"
           >
             Dylan Stratton
           </a>

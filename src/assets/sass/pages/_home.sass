@@ -1,12 +1,12 @@
 .section-landing
   min-height: 100vh
   min-width: 100vw
-  background-image: linear-gradient(to right bottom, rgba($color-white, 0.8), rgba($color-white, 0.6)), url(../images/project.jpg)
+  background-image: linear-gradient(to right bottom, rgba($color-black, 0.3), rgba($color-black, 0.3)), url(../images/wavy.jpg)
   background-size: cover
   background-position: center
 
   @media (min-resolution: 192dpi) and (min-width: 37.5rem), (min-width: 125rem)
-    background-image: linear-gradient(to right bottom, rgba($color-white, 0.8), rgba($color-white, 0.6)), url(../images/project.jpg)
+    background-image: linear-gradient(to right bottom, rgba($color-black, 0.3), rgba($color-black, 0.3)), url(../images/wavy.jpg)
 
   .landing
     width: 100%
@@ -26,13 +26,14 @@
         font-size: 6rem
 
     &__logo
-      width: 30rem
+      width: 25rem
+      margin-bottom: 0
 
     &__sub-heading
       font-size: 2rem
-      margin: 0 auto 6rem
+      margin: 6rem auto 10rem
       width: 50%
-      color: $color-black
+      color: $color-white
 
       @include respond(phone)
         width: 90%
@@ -43,6 +44,7 @@
       &--podcasts,
       &--about
         margin: 0 1rem
+        color: $color-primary-light
         border: 2px solid $color-primary-light
         padding: 1.5rem 3rem
         border-radius: .5rem

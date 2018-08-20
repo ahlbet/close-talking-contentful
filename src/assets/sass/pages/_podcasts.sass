@@ -1,5 +1,5 @@
 .podcasts
-  width: 60%
+  width: 70%
   margin: 5rem auto 0
 
   @include respond(tab-port)
@@ -11,6 +11,9 @@
   &__heading
     font-size: 5rem
 
+  &__image
+    width: 80%  
+
   &__list
     margin: 0
     list-style: none
@@ -20,3 +23,37 @@
 
   &__home
     font-size: $default-font-size
+
+  &__row
+    display: flex  
+    position: relative
+    width: 80%
+
+    @include respond(tab-port)
+      flex-direction: column-reverse
+      width: 100%
+
+  &__info--wrap
+    position: fixed
+    width: 20%
+    height: 100%  
+    right: 5%
+    font-size: $default-font-size
+
+    @include respond(tab-port)
+      position: relative
+      width: 100%
+      right: 0
+      margin-bottom: 2rem
+
+  &__info--social-links
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+
+    @include respond(tab-port)
+      justify-content: flex-start
+
+  &__info--social-link
+    @include respond(tab-port)
+      margin-right: 1rem    

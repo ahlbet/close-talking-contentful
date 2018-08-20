@@ -14,5 +14,39 @@
   &__jack, &__connor, &__homepage
     font-size: $default-font-size
 
+  &__bio--img
+    width: 20rem  
+    height: 20rem
+    border-radius: 50%
+
+    @include respond(phone)
+      width: 15rem
+      height: 15rem
+
   &__image
     margin-top: 1rem
+
+  &__jack, &__connor
+    display: flex
+    align-items: center
+
+    @include respond(phone)
+      flex-direction: column
+      // align-items: flex-start
+
+  &__jack > img
+    margin-left: 3rem
+
+    @include respond(phone)
+      margin-left: 0
+
+  &__connor > img
+    margin-right: 3rem
+
+    @include respond(phone)
+      margin-right: 0
+
+  &__jack
+    @include respond(phone)
+      flex-direction: column-reverse    
+  
