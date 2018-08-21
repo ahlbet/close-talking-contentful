@@ -12,10 +12,9 @@
     font-size: 5rem
 
     &--image
-      height: 25rem
+      height: 25vh
       background-image: url(../images/wavy2.jpg)
       background-size: cover
-      // background-attachment: fixed
 
   &__image
     margin-bottom: 0
@@ -59,28 +58,19 @@
     &--wrap
       position: fixed
       width: 30rem
-      // top: 50%
-      // transform: translateY(-50%)
       right: 8%
       font-size: $default-font-size
       box-shadow: 0 3rem 8rem rgba($color-black, 0.1)
 
-
       @include respond(tab-port)
         position: relative
-        // width: 100%
         right: 0
-        // top: 0
-        // transform: translateY(0)
         margin-bottom: 2rem
 
   &__info--social-links
     display: flex
     flex-wrap: wrap
     justify-content: space-between
-
-    @include respond(tab-port)
-      // justify-content: flex-start
 
   &__info--social-link
     font-size: 4rem
