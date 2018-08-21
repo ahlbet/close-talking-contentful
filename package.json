@@ -4,6 +4,10 @@
   "version": "1.0.0",
   "author": "Dylan Stratton",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.2",
+    "@fortawesome/free-brands-svg-icons": "^5.2.0",
+    "@fortawesome/free-solid-svg-icons": "^5.2.0",
+    "@fortawesome/react-fontawesome": "^0.1.2",
     "gatsby": "^1.9.188",
     "gatsby-link": "^1.6.37",
     "gatsby-plugin-react-helmet": "^2.0.3",

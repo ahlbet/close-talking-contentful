@@ -11,6 +11,12 @@
   &__heading
     font-size: 5rem
 
+    &--image
+      height: 25rem
+      background-image: url(../images/wavy2.jpg)
+      background-size: cover
+      // background-attachment: fixed
+
   &__image
     margin-bottom: 0
 
@@ -27,7 +33,6 @@
     padding: 5rem
     box-shadow: 0 3rem 5rem rgba($color-black, 0.1)
     margin-bottom: 5rem
-    // background: radial-gradient(#ADEEFF, #9FD0FF)
 
     @include respond(tab-port)
       padding: 3rem
@@ -53,16 +58,20 @@
     padding: 2rem
     &--wrap
       position: fixed
-      width: 30%
-      right: 5%
+      width: 30rem
+      // top: 50%
+      // transform: translateY(-50%)
+      right: 8%
       font-size: $default-font-size
       box-shadow: 0 3rem 8rem rgba($color-black, 0.1)
 
 
       @include respond(tab-port)
         position: relative
-        width: 100%
+        // width: 100%
         right: 0
+        // top: 0
+        // transform: translateY(0)
         margin-bottom: 2rem
 
   &__info--social-links
@@ -71,8 +80,9 @@
     justify-content: space-between
 
     @include respond(tab-port)
-      justify-content: flex-start
+      // justify-content: flex-start
 
   &__info--social-link
+    font-size: 4rem
     @include respond(tab-port)
       margin-right: 1rem    
