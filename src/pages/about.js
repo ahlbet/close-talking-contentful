@@ -12,16 +12,8 @@ const About = () => (
       <h1 className="about__heading">About</h1>
       <div className="about__jack">
         <p className="about__jack--text">
-          <b>Jack Rossiter-Munley</b> is a paralegal by day and a freelance
-          writer/editor/podcaster by night. In addition to co-hosting Close
-          Talking, he is also the editor-in-chief for{' '}
-          <a target="_blank" rel="noopener" href="http://trolltennis.com/">trolltennis.com</a> and the host of the New Books in
-          National Security podcast. Jack produces Poetry Spoken Here, a poetry
-          interview podcast. Jack also co-hosts a Shakespeare podcast,{' '}
-          <a target="_blank" rel="noopener" href="https://itunes.apple.com/us/podcast/party-bard/id1263721147?mt=2">Party Bard</a>, with YA author Molly Booth. The music heard
-          at the beginning and end of every Close Talking episode is composed and
-          performed by Jack.
-        </p>
+          <b>Jack Rossiter-Munley</b> is a freelance writer, editor, and podcaster. His poetry and nonfiction have been published in <em>The Ekphrastic Review</em> and <em>One Week//One Band</em> among others, and he writes about professional tennis for <em>Troll Tennis</em> and <em>Last Word on Sports</em>. In addition to co-hosting Close Talking, he produces Poetry Spoken Here, a poetry interview podcast recently named one of the “Best Poetry Podcasts of 2018” by Playerfm, and is the host of the New Books in National Security podcast for the New Books Network. The music heard at the beginning and end of every Close Talking episode is composed and performed by Jack.
+          </p>
         <img src={jackImage} alt="A Headshot of Jack" className="about__bio--img" />
       </div>
       <div className="about__connor">

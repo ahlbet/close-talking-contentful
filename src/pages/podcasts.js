@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'gatsby-link';
 import PropTypes from 'prop-types';
-import hellyea from '../assets/images/hellyea.jpg';
+import hellyea from '../assets/images/hell4 copy.jpg';
 
 const Podcasts = ({ data }) => (
   <div>
@@ -17,12 +17,14 @@ const Podcasts = ({ data }) => (
                 <Link className="podcasts__item--link" to={`/podcasts/${post.node.title.replace(/\s+/g, '-').toLowerCase()}/`}>
                   {post.node.title}
                 </Link>
+                <p>{post.node.date}</p>
                 <p className="podcasts__item--excerpt">{post.node.content.childMarkdownRemark.excerpt}</p>
               </li>
             ))}
           </ul>
         </div>
         <div className="podcasts__info--wrap">
+          <img src={hellyea} alt="Image" className="podcasts__image" />
           <div className="podcasts__info">
             {/* <p className="podcasts__info--title">Close Talking</p> */}
             <p className="podcasts__info--description">Close Talking is a podcast hosted by good friends Connor Stratton and Jack Rossiter-Munley. In each episode the two read a poem and discuss at length. The pop culture references fly as freely as the literary theories. Close Talking is a poetry podcast anyone can enjoy.</p>
