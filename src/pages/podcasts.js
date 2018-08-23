@@ -1,58 +1,73 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Link from 'gatsby-link';
 import PropTypes from 'prop-types';
 import hellyea from '../assets/images/hell4 copy.jpg';
 import wavy2 from '../assets/images/wavy2.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const Podcasts = ({ data }) => (
-  <div>
-    <div className="podcasts__heading--image"></div>
-    <div className="podcasts">
-      <h1 className="podcasts__heading">Podcasts</h1>
-      <div className="podcasts__row">
-        <div className="podcasts__list--wrap">
-          <ul className="podcasts__list">
-            {data.allContentfulPost.edges.map(post => (
-              <li className="podcasts__item" key={post.node.id}>
+class Podcasts extends Component {
+  constructor(props) {
+    super(props);
+  }
 
-                {/* { console.log(post.node.title.replace(/\s+/g, '-').toLowerCase()) } */}
-                <Link className="podcasts__item--link" to={`/podcasts/${post.node.title.replace(/\s+/g, '-').toLowerCase()}/`}>
-                  {post.node.title}
-                </Link>
-                <p>{post.node.date}</p>
-                <p className="podcasts__item--excerpt">{post.node.content.childMarkdownRemark.excerpt}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="podcasts__info--wrap">
-          {/* <img src={hellyea} alt="Image" className="podcasts__image" /> */}
-          <div className="podcasts__info">
-            {/* <p className="podcasts__info--title">Close Talking</p> */}
-            {/* <p className="podcasts__info--description">Close Talking is a podcast hosted by good friends Connor Stratton and Jack Rossiter-Munley. In each episode the two read a poem and discuss at length. The pop culture references fly as freely as the literary theories. Close Talking is a poetry podcast anyone can enjoy.</p> */}
-            <div className="podcasts__info--social-links">
-              <a className="podcasts__info--social-link" href="https://www.facebook.com/CloseTalking/" target="_blank" rel="noopener"><FontAwesomeIcon icon={["fab", "facebook"]} /></a>
+  componentDidMount() {
+    if (typeof twttr.widgets !== 'undefined') {
+      twttr.widgets.load();
+    }
+  }
 
-              <a className="podcasts__info--social-link" href="https://twitter.com/closetalking" target="_blank" rel="noopener"><FontAwesomeIcon icon={["fab", "twitter"]} /></a>
+  render() {
+    return (
+      <div>
+        <div className="podcasts__heading--image"></div>
+        <div className="podcasts">
+          <h1 className="podcasts__heading">Podcasts</h1>
+          <div className="podcasts__row">
+            <div className="podcasts__list--wrap">
+              <ul className="podcasts__list">
+                {this.props.data.allContentfulPost.edges.map(post => (
+                  <li className="podcasts__item" key={post.node.id}>
 
-              <a className="podcasts__info--social-link" href="https://soundcloud.com/close-talking" target="_blank" rel="noopener"><FontAwesomeIcon icon={["fab", "soundcloud"]} /></a>
-
-              <a className="podcasts__info--social-link" href="https://itunes.apple.com/us/podcast/close-talking/id1185025517?mt=2" target="_blank" rel="noopener"><FontAwesomeIcon icon={["fab", "itunes"]} /></a>
-
+                    {/* { console.log(post.node.title.replace(/\s+/g, '-').toLowerCase()) } */}
+                    <Link className="podcasts__item--link" to={`/podcasts/${post.node.title.replace(/\s+/g, '-').toLowerCase()}/`}>
+                      {post.node.title}
+                    </Link>
+                    <p>{post.node.date}</p>
+                    <p className="podcasts__item--excerpt">{post.node.content.childMarkdownRemark.excerpt}</p>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <Link className="podcasts__info--back-home" to="/">Back home</Link>
+            <div className="podcasts__info--wrap">
+              {/* <img src={hellyea} alt="Image" className="podcasts__image" /> */}
+              <div className="podcasts__info">
+                {/* <p className="podcasts__info--title">Close Talking</p> */}
+                {/* <p className="podcasts__info--description">Close Talking is a podcast hosted by good friends Connor Stratton and Jack Rossiter-Munley. In each episode the two read a poem and discuss at length. The pop culture references fly as freely as the literary theories. Close Talking is a poetry podcast anyone can enjoy.</p> */}
+                <div className="podcasts__info--social-links">
+                  <a className="podcasts__info--social-link" href="https://www.facebook.com/CloseTalking/" target="_blank" rel="noopener"><FontAwesomeIcon icon={["fab", "facebook"]} /></a>
 
+                  <a className="podcasts__info--social-link" href="https://twitter.com/closetalking" target="_blank" rel="noopener"><FontAwesomeIcon icon={["fab", "twitter"]} /></a>
+
+                  <a className="podcasts__info--social-link" href="https://soundcloud.com/close-talking" target="_blank" rel="noopener"><FontAwesomeIcon icon={["fab", "soundcloud"]} /></a>
+
+                  <a className="podcasts__info--social-link" href="https://itunes.apple.com/us/podcast/close-talking/id1185025517?mt=2" target="_blank" rel="noopener"><FontAwesomeIcon icon={["fab", "itunes"]} /></a>
+
+                </div>
+                <Link className="podcasts__info--back-home" to="/">Back home</Link>
+                <a className="twitter-timeline" href="https://twitter.com/CloseTalking?ref_src=twsrc%5Etfw" data-width="220" data-height="320">Tweets by CloseTalking</a>
+
+              </div>
+            </div>
           </div>
+
+          <Link className="podcasts__home" to="/">
+            Back home
+      </Link>
         </div>
       </div>
-
-      <Link className="podcasts__home" to="/">
-        Back home
-      </Link>
-    </div>
-  </div>
-);
+    );
+  }
+}
 
 export const pageQuery = graphql`
   query IndexQuery {

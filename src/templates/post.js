@@ -19,10 +19,10 @@ class Template extends React.Component {
           <h1 className="podcast__title">{title}</h1>
           <p className="podcast__date">{date}</p>
           {soundcloudLink ? (
-            <div className="podcast__audio" dangerouslySetInnerHTML={{ __html: soundcloudLink.soundcloudLink }}/>
+            <div className="podcast__audio" dangerouslySetInnerHTML={{ __html: soundcloudLink.soundcloudLink }} />
           ) : (
-            <div className="podcast__no-audio">No SoundCloud Player available.</div>
-          )}
+              <div className="podcast__no-audio">No SoundCloud Player available.</div>
+            )}
           <div
             className="podcast__content"
             dangerouslySetInnerHTML={{
