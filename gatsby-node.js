@@ -6,7 +6,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 
   return graphql(`
     {
-      allContentfulPodcast {
+      allContentfulPost {
         edges {
           node {
             id
@@ -16,18 +16,18 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
       }
     }
   `).then(res => {
-    if (res.errors) {
-      return Promise.reject(res.errors);
-    }
+      if (res.errors) {
+        return Promise.reject(res.errors);
+      }
 
-    res.data.allContentfulPodcast.edges.forEach(({ node }) => {
-      createPage({
-        path: `/podcasts/${node.title.replace(/\s+/g, '-')}/`,
-        component: postTemplate,
-        context: {
-          id: node.id
-        }
+      res.data.allContentfulPost.edges.forEach(({ node }) => {
+        createPage({
+          path: `/podcasts/${node.title.replace(/\s+/g, '-')}/`,
+          component: postTemplate,
+          context: {
+            id: node.id
+          }
+        });
       });
     });
-  });
 };

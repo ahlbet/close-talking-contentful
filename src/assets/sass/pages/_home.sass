@@ -1,6 +1,7 @@
 .section-landing
   min-height: 100vh
   min-width: 100vw
+<<<<<<< HEAD
   background-image: url(../images/landing2.png)
   background-size: cover
   background-position: center
@@ -16,6 +17,17 @@
   .landing
     width: 100%
     // color: $color-white
+=======
+  background-image: linear-gradient(to right bottom, rgba($color-black, 0.3), rgba($color-black, 0.3)), url(../images/wavy.jpg)
+  background-size: cover
+  background-position: center
+
+  @media (min-resolution: 192dpi) and (min-width: 37.5rem), (min-width: 125rem)
+    background-image: linear-gradient(to right bottom, rgba($color-black, 0.3), rgba($color-black, 0.3)), url(../images/wavy.jpg)
+
+  .landing
+    width: 100%
+>>>>>>> 93d3f3638173e2fd692194fd23356bf9003b5299
     color: $color-black
     position: absolute
     top: 50%
@@ -32,6 +44,7 @@
         font-size: 6rem
 
     &__logo
+<<<<<<< HEAD
       width: 30rem
 
     &__sub-heading
@@ -148,3 +161,35 @@
   &__item
     display: inline
     margin: 0 3rem
+=======
+      width: 20rem
+      margin-bottom: 0
+
+    &__sub-heading
+      text-align: left
+      font-size: $default-font-size
+      margin: 4rem auto 5rem
+      width: 45%
+      color: $color-white
+
+      @include respond(tab-port)
+        width: 60%
+
+      @include respond(phone)
+        width: 90%
+
+    &__navigation
+      font-size: 2rem
+
+      &--podcasts,
+      &--about
+        margin: 0 1rem
+        color: $color-primary-light
+        border: 2px solid $color-primary-light
+        padding: 1.5rem 3rem
+        border-radius: .5rem
+
+        &:hover
+          background: $color-primary-light
+          color: $color-white
+>>>>>>> 93d3f3638173e2fd692194fd23356bf9003b5299

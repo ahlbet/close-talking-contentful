@@ -1,32 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from 'gatsby-link';
 import Helmet from 'react-helmet';
-
+import favicon from '../assets/images/logo.png';
 import './index.scss';
 import '../assets/sass/main.sass';
-import '../assets/icons/style.css';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faFacebook, faTwitter, faSoundcloud, faItunes } from '@fortawesome/free-brands-svg-icons';
 
-const Header = () => (
-  <div>
-    <div class="header-wrap">
-      <h1>
-        <Link to="/">Close Talking</Link>
-      </h1>
-    </div>
-  </div>
-);
+library.add(faFacebook, faTwitter, faSoundcloud, faItunes);
 
 const TemplateWrapper = ({ children }) => (
   <div>
-    <Helmet>
-      <title>Close Talking</title>
-      <meta
-        name="description"
-        content="Theatre and Code is a website dedicated to the intersection of creative programming and theatre."
-      />
-      <meta name="keywords" content="theatre, code" />
-    </Helmet>
+    <Helmet
+      title="Close Talking"
+      meta={[
+        {
+          name: 'description',
+          content: 'Close Talking | Poetry Podcast'
+        },
+        { name: 'keywords', content: 'web, developer' }
+      ]}
+      link={[
+        { rel: 'shortcut icon', type: 'image/png', href: `${favicon}` }
+      ]}
+    />
+    {/* <Header /> */}
     <div>{children()}</div>
   </div>
 );

@@ -28,9 +28,9 @@ export default class MediaElement extends Component {
     for (let i = 0, total = tracks.length; i < total; i++) {
       const track = tracks[i];
       tracksTags.push(
-        `<track src="${track.src}" kind="${track.kind}" srclang="${track.lang}"${track.label
-          ? ` label=${track.label}`
-          : ''}>`
+        `<track src="${track.src}" kind="${track.kind}" srclang="${
+        track.lang
+        }"${track.label ? ` label=${track.label}` : ''}>`
       );
     }
 
@@ -38,12 +38,12 @@ export default class MediaElement extends Component {
 				${tracksTags.join('\n')}`,
       mediaHtml =
         props.mediaType === 'video'
-          ? `<video id="${props.id}" width="${props.width}" height="${props.height}"${props.poster
-              ? ` poster=${props.poster}`
-              : ''}
-					${props.controls ? ' controls' : ''}${props.preload
-              ? ` preload="${props.preload}"`
-              : ''}>
+          ? `<video id="${props.id}" width="${props.width}" height="${
+          props.height
+          }"${props.poster ? ` poster=${props.poster}` : ''}
+					${props.controls ? ' controls' : ''}${
+          props.preload ? ` preload="${props.preload}"` : ''
+          }>
 					${mediaBody}
 				</video>`
           : `<audio id="${props.id}" width="${props.width}" controls>
