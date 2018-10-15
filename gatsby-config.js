@@ -1,17 +1,20 @@
+require('dotenv').config();
+
 module.exports = {
   siteMetadata: {
     title: `Close Talking`
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sass`,
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-source-contentful`,
       options: {
-        path: `${__dirname}/src/pages`,
-        name: 'pages'
+        spacedId: process.env.CONTENTFUL_SPACE_ID || '',
+        accessToken:
+          process.env.CONTENTFUL_ACCESS_TOKEN || ''
       }
     },
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sass`,
     `gatsby-transformer-remark`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`

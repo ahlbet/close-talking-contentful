@@ -6,23 +6,11 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 
   return graphql(`
     {
-      allMarkdownRemark {
+      allContentfulPodcast {
         edges {
           node {
-            html
             id
-            frontmatter {
-              path
-              title
-              date
-              indexImage {
-                childImageSharp {
-                  responsiveSizes(maxWidth: 800) {
-                    src
-                  }
-                }
-              }
-            }
+            title
           }
         }
       }
@@ -32,10 +20,13 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
       return Promise.reject(res.errors);
     }
 
-    res.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    res.data.allContentfulPodcast.edges.forEach(({ node }) => {
       createPage({
-        path: node.frontmatter.path,
-        component: postTemplate
+        path: `/podcasts/${node.title.replace(/\s+/g, '-')}/`,
+        component: postTemplate,
+        context: {
+          id: node.id
+        }
       });
     });
   });

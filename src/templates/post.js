@@ -1,44 +1,69 @@
 import React from 'react';
 import Link from 'gatsby-link';
 import Helmet from 'react-helmet';
-import Img from 'gatsby-image';
+import PropTypes from 'prop-types';
+import MediaElement from '../components/MediaElement';
 
-export default function Template({ data }) {
-  const { markdownRemark: post } = data;
-  return (
-    <div>
-      <div className="post-wrap">
-        <Link className="back-to-blog" to="/blog/">
-          Back to blog
-        </Link>
-        <h1>{post.frontmatter.title}</h1>
-        <img
-          src={post.frontmatter.indexImage.childImageSharp.responsiveSizes.src}
-          alt={post.frontmatter.title}
+const propTypes = {
+  data: PropTypes.object
+};
+
+class Template extends React.Component {
+  render() {
+    const post = this.props.data.contentfulPost;
+    const { id, title, date, content, audio } = post;
+    // const sources = [{src: {audio.file.url}, type: 'audio/mp3'}],
+    const config = {};
+    const tracks = {};
+
+    return (
+      <div>
+        <h1>{title}</h1>
+        <p>{date}</p>
+        {audio ? (
+          <div>
+            {/* <ReactAudioPlayer src={audio.file.url} controls /> */}
+            {console.log(post)}
+            <MediaElement
+              id={post.title}
+              mediaType="audio"
+              src={post.audio.file.url}
+              // sources={JSON.stringify(sources)}
+              controls
+              options={JSON.stringify(config)}
+              tracks={JSON.stringify(tracks)}
+              // style={audioStyles}
+            />
+          </div>
+        ) : (
+          <div>No audio</div>
+        )}
+        <div
+          dangerouslySetInnerHTML={{ __html: content.childMarkdownRemark.html }}
         />
-        {/* {post.frontmatter.indexImage && <Img />} */}
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        <Link className="back-to-blog" to="/blog/">
-          Back to blog
-        </Link>
+        <Link to="/podcasts/">Back to podcasts</Link>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
+export default Template;
+
 export const postQuery = graphql`
-  query BlogPostByPath($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
-      frontmatter {
-        path
-        title
-        indexImage {
-          childImageSharp {
-            responsiveSizes(maxWidth: 800) {
-              src
-            }
-          }
+  query podcastPostQuery($id: String!) {
+    contentfulPodcast(id: { eq: $id }) {
+      title
+      date
+      content {
+        childMarkdownRemark {
+          html
+        }
+      }
+      audio {
+        file {
+          url
+          fileName
+          contentType
         }
       }
     }

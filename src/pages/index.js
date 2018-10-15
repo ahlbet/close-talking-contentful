@@ -2,13 +2,6 @@ import React from 'react';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
 
-import Navigation from '../components/Navigation';
-import About from '../components/About';
-import Dream from '../components/Dream';
-import Projects from '../components/Projects';
-import Contact from '../components/Contact';
-import Footer from '../components/Footer';
-
 import logo from '../assets/images/logo.svg';
 
 const Button = styled(Link)`
@@ -42,15 +35,11 @@ const IndexPage = () => (
           theories. Close Talking is a poetry podcast anyone can enjoy.
         </p>
         {/* <Link className="toBlog" to="/blog/"> */}
-        <Button to="/blog/">Podcasts</Button>
+        <Button to="/podcasts/">Podcasts</Button>
         <Button to="/about/">About</Button>
         {/* </Link> */}
       </div>
     </section>
-    {/* <About />
-    <Dream />
-    <Projects />
-    <Contact /> */}
     <Footer />
   </div>
 );

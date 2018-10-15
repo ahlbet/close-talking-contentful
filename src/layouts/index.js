@@ -26,10 +26,6 @@ const TemplateWrapper = ({ children }) => (
         content="Theatre and Code is a website dedicated to the intersection of creative programming and theatre."
       />
       <meta name="keywords" content="theatre, code" />
-      <link
-        rel="stylesheet"
-        href="https://highlightjs.org/static/demo/styles/railscasts.css"
-      />
     </Helmet>
     <div>{children()}</div>
   </div>
