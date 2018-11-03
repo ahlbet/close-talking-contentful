@@ -1,40 +1,22 @@
-.section-landing
-  min-height: 100vh
-  min-width: 100vw
-  background-image: linear-gradient(to right bottom, rgba($color-black, 0.3), rgba($color-black, 0.3)), url(../images/wavy.jpg)
-  background-size: cover
-  background-position: center
+.landing
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  margin-bottom: 5rem
 
-  @media (min-resolution: 192dpi) and (min-width: 37.5rem), (min-width: 125rem)
-    background-image: linear-gradient(to right bottom, rgba($color-black, 0.3), rgba($color-black, 0.3)), url(../images/wavy.jpg)
+  &__heading
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
 
-  .landing
-    width: 100%
-    color: $color-black
-    position: absolute
-    top: 50%
-    left: 50%
-    transform: translate(-50%, -50%)
-    text-align: center
-
-    &__heading
-      text-transform: uppercase
-      font-weight: 100
-      font-size: 9rem
-
-      @include respond(phone)
-        font-size: 6rem
-
-    &__logo
-      width: 20rem
-      margin-bottom: 0
-
-    &__sub-heading
+    &--text
       text-align: left
       font-size: $default-font-size
-      margin: 4rem auto 5rem
-      width: 45%
-      color: $color-white
+      width: 35%
+      color: $color-black
+      margin-bottom: 2.5rem
 
       @include respond(tab-port)
         width: 60%
@@ -42,17 +24,8 @@
       @include respond(phone)
         width: 90%
 
-    &__navigation
-      font-size: 2rem
-
-      &--podcasts,
-      &--about
-        margin: 0 1rem
-        color: $color-primary-light
-        border: 2px solid $color-primary-light
-        padding: 1.5rem 3rem
-        border-radius: .5rem
-
-        &:hover
-          background: $color-primary-light
-          color: $color-white
+  &__podcast
+    padding: 3rem 0
+    margin-top: 0
+    border-top: 2px solid $color-grey-light-1      
+    border-bottom: 2px solid $color-grey-light-1      

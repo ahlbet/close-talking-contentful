@@ -2,7 +2,6 @@ import React from 'react';
 import Link from 'gatsby-link';
 import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
-// import MediaElement from '../components/MediaElement';
 
 const propTypes = {
   data: PropTypes.object
@@ -18,11 +17,10 @@ class Template extends React.Component {
         <div className="podcast">
           <h1 className="podcast__title">{title}</h1>
           <p className="podcast__date">{date}</p>
-          {soundcloudLink ? (
-            <div className="podcast__audio" dangerouslySetInnerHTML={{ __html: soundcloudLink.soundcloudLink }} />
-          ) : (
-              <div className="podcast__no-audio">No SoundCloud Player available.</div>
-            )}
+          {soundcloudLink ?
+            <div className="podcast__audio" dangerouslySetInnerHTML={{ __html: soundcloudLink.soundcloudLink }} /> :
+            <div className="podcast__no-audio">No SoundCloud Player available.</div>
+          }
           <div
             className="podcast__content"
             dangerouslySetInnerHTML={{
