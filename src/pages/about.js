@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'gatsby-link';
+import Nav from '../components/Header/index';
 import { Socials } from '../components/Socials';
 
 import jackImage from '../assets/images/jack-bw.jpg';
@@ -8,6 +9,7 @@ import aboutImage from '../assets/images/landing.png';
 
 const About = () => (
   <div>
+    <Nav />
     <Socials />
     <div className="about">
       <h1 className="about__heading">About</h1>

@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import hellyea from '../assets/images/hell4 copy.jpg';
 import wavy2 from '../assets/images/wavy2.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Socials } from '../components/Socials'
+import { Socials } from '../components/Socials';
+import Nav from '../components/Header/index'
 
 class Podcasts extends Component {
   constructor(props) {
@@ -20,6 +21,7 @@ class Podcasts extends Component {
   render() {
     return (
       <div>
+        <Nav />
         <Socials />
         <div className="podcasts">
           <div>

@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'gatsby-link';
 import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
+import Nav from '../components/Header/index';
 
 const propTypes = {
   data: PropTypes.object
@@ -14,6 +15,7 @@ class Template extends React.Component {
 
     return (
       <div>
+        <Nav />
         <div className="podcast">
           <h1 className="podcast__title">{title}</h1>
           <p className="podcast__date">{date}</p>
