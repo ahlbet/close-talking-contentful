@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'gatsby-link';
-import logo from '../../assets/images/ctlogo-updated3.png';
+import logo from '../../assets/images/ct-logo-v4.png';
 
 const Header = () => (
   <div className="nav">
