@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Link from 'gatsby-link';
+import { graphql } from 'gatsby'
+import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import hellyea from '../assets/images/hell4 copy.jpg';
 import wavy2 from '../assets/images/wavy2.jpg';

@@ -1,5 +1,6 @@
 import React from 'react';
-import Link from 'gatsby-link';
+import { graphql } from 'gatsby'
+import { Link } from 'gatsby';
 import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
 import Nav from '../components/Header/index';

@@ -9,7 +9,7 @@ if (process.env.NODE_ENV === `production`) {
   }
 }
 
-module.exports = class HTML extends React.Component {
+export default class HTML extends React.Component {
   render() {
     let css
     if (process.env.NODE_ENV === `production`) {
@@ -39,12 +39,12 @@ module.exports = class HTML extends React.Component {
                 js.id = id;
                 js.src = "https://platform.twitter.com/widgets.js";
                 fjs.parentNode.insertBefore(js, fjs);
-              
+
                 t._e = [];
                 t.ready = function(f) {
                   t._e.push(f);
                 };
-              
+
                 return t;
               }(document, "script", "twitter-wjs"));`,
             }}

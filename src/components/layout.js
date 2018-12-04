@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import favicon from '../assets/images/logo.png';
-import './index.scss';
+import '../layouts/index.scss';
 import '../assets/sass/main.sass';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faFacebook, faTwitter, faSoundcloud, faItunes } from '@fortawesome/free-brands-svg-icons';
@@ -24,7 +24,7 @@ const TemplateWrapper = ({ children }) => (
         { rel: 'shortcut icon', type: 'image/png', href: `${favicon}` }
       ]}
     />
-    <div>{children()}</div>
+    <div>{children}</div>
   </div>
 );
 

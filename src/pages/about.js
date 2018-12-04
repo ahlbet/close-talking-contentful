@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 import Nav from '../components/Header/index';
 import { Socials } from '../components/Socials';
 
