@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import favicon from '../assets/images/logo.png';
+import favicon from '../assets/images/ct-logo-v4-no-image.png';
 import '../layouts/index.scss';
 import '../assets/sass/main.sass';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -9,7 +9,7 @@ import { faFacebook, faTwitter, faSoundcloud, faItunes } from '@fortawesome/free
 
 library.add(faFacebook, faTwitter, faSoundcloud, faItunes);
 
-const TemplateWrapper = ({ children }) => (
+export default ({ children }) => (
   <div>
     <Helmet
       title="Close Talking"
@@ -27,9 +27,3 @@ const TemplateWrapper = ({ children }) => (
     <div>{children}</div>
   </div>
 );
-
-TemplateWrapper.propTypes = {
-  children: PropTypes.func
-};
-
-export default TemplateWrapper;

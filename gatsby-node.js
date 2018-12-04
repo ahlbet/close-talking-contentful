@@ -1,7 +1,7 @@
 const path = require('path');
 
-exports.createPages = ({ actions, graphql }) => {
-  const { createPage } = actions;
+exports.createPages = ({ boundActionCreators, graphql }) => {
+  const { createPage } = boundActionCreators;
   const postTemplate = path.resolve('src/templates/post.js');
 
   return graphql(`
@@ -22,7 +22,7 @@ exports.createPages = ({ actions, graphql }) => {
 
       res.data.allContentfulPost.edges.forEach(({ node }) => {
         createPage({
-          path: `/podcasts/${node.title.replace(/\s+/g, '-')}/`,
+          path: `/podcasts/${node.title.replace(/\s+/g, '-').toLowerCase()}/`,
           component: postTemplate,
           context: {
             id: node.id
