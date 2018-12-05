@@ -13,6 +13,8 @@ export class Socials extends Component {
 
         <a className="social-link" href="https://itunes.apple.com/us/podcast/close-talking/id1185025517?mt=2" target="_blank" rel="noopener"><FontAwesomeIcon icon={["fab", "itunes"]} /></a>
 
+        <a className="social-link" href="https://www.instagram.com/closetalkingpoetry/" target="_blank" rel="noopener"><FontAwesomeIcon icon={["fab", "instagram"]} /></a>
+
       </div>
     );
   }

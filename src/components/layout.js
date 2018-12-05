@@ -5,9 +5,9 @@ import favicon from '../assets/images/ct-logo-v4-no-image.png';
 import '../layouts/index.scss';
 import '../assets/sass/main.sass';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faFacebook, faTwitter, faSoundcloud, faItunes } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faTwitter, faSoundcloud, faItunes, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
-library.add(faFacebook, faTwitter, faSoundcloud, faItunes);
+library.add(faFacebook, faTwitter, faSoundcloud, faItunes, faInstagram);
 
 export default ({ children }) => (
   <div>
