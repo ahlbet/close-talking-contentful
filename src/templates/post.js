@@ -44,7 +44,11 @@ class Template extends React.Component {
           />
           <Link
             className="podcast__back"
-            to={this.props.location.state.backToPodcasts}
+            to={
+              this.props.location.state
+                ? this.props.location.state.backToPodcasts
+                : "/podcasts"
+            }
           >
             Back to podcasts
           </Link>
