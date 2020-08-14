@@ -1,18 +1,17 @@
 import React, { Component } from "react";
 import { graphql } from "gatsby";
 import { Link } from "gatsby";
-import PropTypes from "prop-types";
-import hellyea from "../assets/images/hell4 copy.jpg";
-import wavy2 from "../assets/images/wavy2.jpg";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Socials } from "../components/Socials";
 import Nav from "../components/Header/index";
+import Tagline from "../components/Tagline";
+import moment from "moment";
 
-const NavLink = props => {
+const NavLink = (props) => {
+  console.log("props", props);
   if (!props.test) {
     return <Link to={props.url}>{props.text}</Link>;
   } else {
-    return <span>{props.text}</span>;
+    return null;
   }
 };
 
@@ -37,12 +36,13 @@ class Podcasts extends Component {
       <div>
         <Nav />
         <Socials />
+        <Tagline />
         <div className="podcasts">
           <div className="podcasts__main">
             <div className="podcasts__list-wrap">
               <h1 className="podcasts__heading">Podcasts</h1>
               <ul className="podcasts__list">
-                {group.map(post => (
+                {group.map((post) => (
                   <li className="podcasts__item" key={post.node.id}>
                     <Link
                       className="podcasts__item--link"
@@ -51,12 +51,12 @@ class Podcasts extends Component {
                         .toLowerCase()}/`}
                       state={{
                         backToPodcasts:
-                          index == 1 ? "/podcasts/" : `/podcasts/${index}`
+                          index == 1 ? "/podcasts/" : `/podcasts/${index}`,
                       }}
                     >
                       {post.node.title}
                     </Link>
-                    <p>{post.node.date}</p>
+                    <p>{moment(post.node.date).format("M/D/YYYY")}</p>
                     <p className="podcasts__item--excerpt">
                       {post.node.content.childMarkdownRemark.excerpt}
                     </p>

@@ -5,9 +5,11 @@ import Helmet from "react-helmet";
 import PropTypes from "prop-types";
 import Nav from "../components/Header/index";
 import { Socials } from "../components/Socials";
+import Tagline from "../components/Tagline";
+import moment from "moment";
 
 const propTypes = {
-  data: PropTypes.object
+  data: PropTypes.object,
 };
 
 class Template extends React.Component {
@@ -15,20 +17,19 @@ class Template extends React.Component {
     const post = this.props.data.contentfulPost;
     const { id, title, date, content, soundcloudLink } = post;
 
-    console.log("props", this.props);
-
     return (
       <div>
         <Nav />
         <Socials />
+        <Tagline />
         <div className="podcast">
           <h1 className="podcast__title">{title}</h1>
-          <p className="podcast__date">{date}</p>
+          <p className="podcast__date">{moment(date).format("M/D/YYYY")}</p>
           {soundcloudLink ? (
             <div
               className="podcast__audio"
               dangerouslySetInnerHTML={{
-                __html: soundcloudLink.soundcloudLink
+                __html: soundcloudLink.soundcloudLink,
               }}
             />
           ) : (
@@ -39,7 +40,7 @@ class Template extends React.Component {
           <div
             className="podcast__content"
             dangerouslySetInnerHTML={{
-              __html: content.childMarkdownRemark.html
+              __html: content.childMarkdownRemark.html,
             }}
           />
           <Link
