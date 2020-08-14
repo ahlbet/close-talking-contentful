@@ -1,4 +1,6 @@
 .landing
+  position: relative
+
   &__recent
     color: $color-black
     margin: 0 1rem
@@ -12,10 +14,11 @@
     margin-bottom: 2.5rem
 
     &--item
-      color: $color-primary
+      color: $color-primary-light
       font-size: 2rem
+      font-weight: 300
       padding: 1.5rem 3rem
-      border: 2px solid $color-primary
+      border: 1px solid $color-primary-light
       border-radius: 0.5rem
       text-transform: uppercase
       margin: 0 2rem
@@ -24,6 +27,11 @@
     width: 40rem
     height: 40rem
     margin-bottom: 0
+
+  &__subtitle
+    color: $color-grey-light-1
+    font-size: 2.5rem
+    margin-top: 3rem
 
   &__heading
     display: flex
@@ -38,9 +46,9 @@
 
     &--text
       margin: 0 auto
-      text-align: left
-      font-size: 2rem
-      width: 40%
+      text-align: center
+      font-size: 1.75rem
+      width: 60%
       color: $color-black
       margin-bottom: 2.5rem
 
