@@ -7,7 +7,6 @@ import Tagline from "../components/Tagline";
 import moment from "moment";
 
 const NavLink = (props) => {
-  console.log("props", props);
   if (!props.test) {
     return <Link to={props.url}>{props.text}</Link>;
   } else {
@@ -47,6 +46,7 @@ class Podcasts extends Component {
                     <Link
                       className="podcasts__item--link"
                       to={`/podcasts/${post.node.title
+                        .replace(/[?!@#$%^&*]/g, "")
                         .replace(/\s+/g, "-")
                         .toLowerCase()}/`}
                       state={{
