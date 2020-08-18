@@ -27,7 +27,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         }
       }
     }
-  `).then(res => {
+  `).then((res) => {
     if (res.errors) {
       return Promise.reject(res.errors);
     }
@@ -38,16 +38,19 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
       pageTemplate: "src/templates/podcasts.js",
       pageLength: 5, // This is optional and defaults to 10 if not used
       pathPrefix: "podcasts", // This is optional and defaults to an empty string if not used
-      context: {} // This is optional and defaults to an empty object if not used
+      context: {}, // This is optional and defaults to an empty object if not used
     });
 
     res.data.allContentfulPost.edges.forEach(({ node }) => {
       createPage({
-        path: `/podcasts/${node.title.replace(/\s+/g, "-").toLowerCase()}/`,
+        path: `/podcasts/${node.title
+          .replace(/[?!@#$%^&*]/g, "")
+          .replace(/\s+/g, "-")
+          .toLowerCase()}/`,
         component: postTemplate,
         context: {
-          id: node.id
-        }
+          id: node.id,
+        },
       });
     });
   });

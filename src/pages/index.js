@@ -49,6 +49,7 @@ class IndexPage extends Component {
               <Link
                 className="landing__recent"
                 to={`/podcasts/${recent.node.title
+                  .replace(/[?!@#$%^&*]/g, "")
                   .replace(/\s+/g, "-")
                   .toLowerCase()}/`}
               >
