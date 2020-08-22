@@ -49,7 +49,7 @@
       width: 48%
 
     @include respond(phone)
-      width: 100%  
+      width: 100%
 
     &--link
       font-size: 2rem
@@ -69,8 +69,12 @@
       display: none
 
   &__paginate-links
-    // margin: 0 2.5rem
+    align-items: center
+    display: flex
+
+    &--current
+      font-weight: 700
 
     a
-      font-size: 2rem 
-         
+      font-size: 2rem
+      margin: 0 1rem
