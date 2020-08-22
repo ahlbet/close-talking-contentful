@@ -1,18 +1,11 @@
-import React, { Component } from "react";
-import { graphql } from "gatsby";
-import { Link } from "gatsby";
-import { Socials } from "../components/Socials";
-import Nav from "../components/Header/index";
-import Tagline from "../components/Tagline";
-import moment from "moment";
-
-const NavLink = (props) => {
-  if (!props.test) {
-    return <Link to={props.url}>{props.text}</Link>;
-  } else {
-    return null;
-  }
-};
+import React, { Component } from 'react';
+import { graphql } from 'gatsby';
+import { Link } from 'gatsby';
+import { Socials } from '../components/Socials';
+import Nav from '../components/Header/index';
+import Tagline from '../components/Tagline';
+import moment from 'moment';
+import Paginator from '../components/Paginator';
 
 class Podcasts extends Component {
   constructor(props) {
@@ -20,16 +13,13 @@ class Podcasts extends Component {
   }
 
   componentDidMount() {
-    if (typeof twttr.widgets !== "undefined") {
+    if (typeof twttr.widgets !== 'undefined') {
       twttr.widgets.load();
     }
   }
 
   render() {
-    const { group, index, first, last, pageCount } = this.props.pageContext;
-    const previousUrl =
-      index - 1 == 1 ? "/podcasts/" : `/podcasts/${(index - 1).toString()}`;
-    const nextUrl = `/podcasts/${(index + 1).toString()}`;
+    const { group, index } = this.props.pageContext;
 
     return (
       <div>
@@ -46,17 +36,17 @@ class Podcasts extends Component {
                     <Link
                       className="podcasts__item--link"
                       to={`/podcasts/${post.node.title
-                        .replace(/[?!@#$%^&*]/g, "")
-                        .replace(/\s+/g, "-")
+                        .replace(/[?!@#$%^&*]/g, '')
+                        .replace(/\s+/g, '-')
                         .toLowerCase()}/`}
                       state={{
                         backToPodcasts:
-                          index == 1 ? "/podcasts/" : `/podcasts/${index}`,
+                          index == 1 ? '/podcasts/' : `/podcasts/${index}`,
                       }}
                     >
                       {post.node.title}
                     </Link>
-                    <p>{moment(post.node.date).format("M/D/YYYY")}</p>
+                    <p>{moment(post.node.date).format('M/D/YYYY')}</p>
                     <p className="podcasts__item--excerpt">
                       {post.node.content.childMarkdownRemark.excerpt}
                     </p>
@@ -76,18 +66,7 @@ class Podcasts extends Component {
               </a>
             </div>
           </div>
-          <div className="podcasts__paginate-links">
-            <div className="previousLink">
-              <NavLink
-                test={first}
-                url={previousUrl}
-                text="Go to Previous Page"
-              />
-            </div>
-            <div className="nextLink">
-              <NavLink test={last} url={nextUrl} text="Go to Next Page" />
-            </div>
-          </div>
+          <Paginator pageContext={this.props.pageContext} />
         </div>
       </div>
     );
