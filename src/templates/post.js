@@ -1,12 +1,12 @@
-import React from "react";
-import { graphql } from "gatsby";
-import { Link } from "gatsby";
-import Helmet from "react-helmet";
-import PropTypes from "prop-types";
-import Nav from "../components/Header/index";
-import { Socials } from "../components/Socials";
-import Tagline from "../components/Tagline";
-import moment from "moment";
+import React from 'react';
+import { graphql } from 'gatsby';
+import { Link } from 'gatsby';
+import Helmet from 'react-helmet';
+import PropTypes from 'prop-types';
+import Nav from '../components/Header/index';
+import { Socials } from '../components/Socials';
+import Tagline from '../components/Tagline';
+import moment from 'moment';
 
 const propTypes = {
   data: PropTypes.object,
@@ -15,7 +15,7 @@ const propTypes = {
 class Template extends React.Component {
   render() {
     const post = this.props.data.contentfulPost;
-    const { id, title, date, content, soundcloudLink } = post;
+    const { id, title, date, content, soundcloudLink, transcription } = post;
 
     return (
       <div>
@@ -24,7 +24,8 @@ class Template extends React.Component {
         <Tagline />
         <div className="podcast">
           <h1 className="podcast__title">{title}</h1>
-          <p className="podcast__date">{moment(date).format("M/D/YYYY")}</p>
+
+          <p className="podcast__date">{moment(date).format('M/D/YYYY')}</p>
           {soundcloudLink ? (
             <div
               className="podcast__audio"
@@ -35,6 +36,17 @@ class Template extends React.Component {
           ) : (
             <div className="podcast__no-audio">
               No SoundCloud Player available.
+            </div>
+          )}
+          {transcription && (
+            <div className="podcast__transcription-container">
+              <a
+                className="podcast__transcription"
+                href={transcription.file.url}
+                target="__blank"
+              >
+                Download Episode Transcription PDF
+              </a>
             </div>
           )}
           <div
@@ -48,7 +60,7 @@ class Template extends React.Component {
             to={
               this.props.location.state
                 ? this.props.location.state.backToPodcasts
-                : "/podcasts"
+                : '/podcasts'
             }
           >
             Back to podcasts
@@ -66,6 +78,11 @@ export const postQuery = graphql`
     contentfulPost(id: { eq: $id }) {
       title
       date(formatString: "MM-DD-YYYY")
+      transcription {
+        file {
+          url
+        }
+      }
       content {
         childMarkdownRemark {
           html
