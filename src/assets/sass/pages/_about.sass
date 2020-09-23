@@ -13,11 +13,11 @@
   &__heading
     font-size: 5rem
 
-  &__jack, &__connor, &__homepage
+  &__bio, &__homepage
     font-size: $default-font-size
 
   &__bio--img
-    width: 20rem  
+    width: 20rem
     height: 20rem
     border-radius: 50%
 
@@ -28,27 +28,29 @@
   &__image
     margin-top: 1rem
 
-  &__jack, &__connor
+  &__bio
     display: flex
     align-items: center
 
-    @include respond(phone)
-      flex-direction: column
-      // align-items: flex-start
+    & > img
+      margin-left: 3rem
 
-  &__jack > img
-    margin-left: 3rem
-
-    @include respond(phone)
-      margin-left: 0
-
-  &__connor > img
-    margin-right: 3rem
+      @include respond(phone)
+        margin-left: 0
 
     @include respond(phone)
-      margin-right: 0
+      flex-direction: column-reverse
 
-  &__jack
-    @include respond(phone)
-      flex-direction: column-reverse    
-  
+    &--reverse
+      flex-direction: row-reverse
+
+      & > img
+        margin-right: 3rem
+        margin-left: 0rem
+
+        @include respond(phone)
+          margin-right: 0
+          margin-left: 0
+
+      @include respond(phone)
+        flex-direction: column-reverse
