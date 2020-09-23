@@ -32,7 +32,9 @@ const Bio = ({ bio, index }) => {
 const About = ({ data }) => {
   const bios = data.allContentfulBio.edges;
 
-  console.log('bios', bios);
+  const sortedBios = bios.sort(
+    (a, b) => new Date(a.node.createdAt) - new Date(b.node.createdAt)
+  );
 
   return (
     <div>
@@ -42,7 +44,7 @@ const About = ({ data }) => {
       <div className="about">
         <h1 className="about__heading">About</h1>
 
-        {bios.reverse().map((bio, index) => (
+        {sortedBios.map((bio, index) => (
           <Bio bio={bio} index={index} key={index} />
         ))}
       </div>
@@ -56,6 +58,7 @@ export const query = graphql`
       edges {
         node {
           id
+          createdAt
           headshot {
             file {
               url
