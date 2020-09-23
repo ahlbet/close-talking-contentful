@@ -8,11 +8,31 @@ import connorImage from '../assets/images/connor.jpg';
 import aboutImage from '../assets/images/landing.png';
 import Tagline from '../components/Tagline';
 
+const Bio = ({ bio, index }) => {
+  let bioClassName = 'about__bio';
+
+  if (index % 2 === 1) {
+    bioClassName += ' about__bio--reverse';
+  }
+
+  return (
+    <div className={bioClassName}>
+      <p
+        className="about__text"
+        dangerouslySetInnerHTML={{
+          __html: bio.node.text.childMarkdownRemark.html,
+        }}
+      />
+
+      <img src={bio.node.headshot.file.url} className="about__bio--img" />
+    </div>
+  );
+};
+
 const About = ({ data }) => {
   const bios = data.allContentfulBio.edges;
 
-  const connorBio = bios[0].node.text.childMarkdownRemark.html;
-  const jackBio = bios[1].node.text.childMarkdownRemark.html;
+  console.log('bios', bios);
 
   return (
     <div>
@@ -21,29 +41,10 @@ const About = ({ data }) => {
       <Tagline />
       <div className="about">
         <h1 className="about__heading">About</h1>
-        <div className="about__jack">
-          <p
-            className="about__jack--text"
-            dangerouslySetInnerHTML={{ __html: jackBio }}
-          />
 
-          <img
-            src={jackImage}
-            alt="A Headshot of Jack"
-            className="about__bio--img"
-          />
-        </div>
-        <div className="about__connor">
-          <img
-            src={connorImage}
-            alt="A Headshot of Connor"
-            className="about__bio--img"
-          />
-          <p
-            className="about__connor--text"
-            dangerouslySetInnerHTML={{ __html: connorBio }}
-          />
-        </div>
+        {bios.reverse().map((bio, index) => (
+          <Bio bio={bio} index={index} key={index} />
+        ))}
       </div>
     </div>
   );
@@ -55,6 +56,11 @@ export const query = graphql`
       edges {
         node {
           id
+          headshot {
+            file {
+              url
+            }
+          }
           text {
             text
             childMarkdownRemark {
