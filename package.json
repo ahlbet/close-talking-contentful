@@ -14,7 +14,7 @@
     "gatsby-plugin-sass": "^2.0.5",
     "gatsby-plugin-twitter": "^2.0.8",
     "gatsby-source-contentful": "^2.0.17",
-    "gatsby-transformer-remark": "^2.1.15",
+    "gatsby-transformer-remark": "^5.25.1",
     "moment": "^2.27.0",
     "node-sass": "^4.11.0",
     "react": "^16.6.3",
